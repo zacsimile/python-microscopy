@@ -388,6 +388,9 @@ class DisplayPaneHorizontal(wx.Panel):
         bRight = wx.BitmapButton(self, -1, wx.Bitmap(getIconPath('view-right.png')), style=wx.NO_BORDER|wx.BU_AUTODRAW, name='Right')
         bRight.Bind(wx.EVT_BUTTON, self.OnViewRight)
         hsizer.Add(bRight, 0, wx.LEFT|wx.RIGHT | wx.ALIGN_CENTER_VERTICAL, 0)
+        bPerspective = wx.BitmapToggleButton(self, -1, wx.Bitmap(getIconPath('view-perspective.png')), name='Perspective')
+        bPerspective.Bind(wx.EVT_TOGGLEBUTTON, self.OnViewPerspective)
+        hsizer.Add(bPerspective, 0, wx.LEFT|wx.RIGHT | wx.ALIGN_CENTER_VERTICAL, 0)
         
         
         hsizer.AddSpacer(10)
@@ -462,4 +465,11 @@ class DisplayPaneHorizontal(wx.Panel):
         self.glCanvas.view.vec_up=np.array([1,0,0])
         self.glCanvas.view.vec_back = np.array([0,1,0])
         self.glCanvas.view.vec_right = np.array([0,0,1])
+        self.glCanvas.Refresh()
+
+    def OnViewPerspective(self, event):
+        if event.IsChecked():
+            self.glCanvas.displayMode = '3DPersp'
+        else:
+            self.glCanvas.displayMode = self.r3DMode.GetString(self.r3DMode.GetSelection())
         self.glCanvas.Refresh()
