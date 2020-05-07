@@ -362,7 +362,7 @@ class LMGLShaderCanvas(GLCanvas):
             glLoadIdentity()
 
             if self.displayMode == '3DPersp':
-                glFrustum(-1 + eye, 1 + eye, -ys, ys, 8.5, 11.5)
+                glFrustum(-1 + eye, 1 + eye, ys, -ys, 8.5, 11.5)
             else:
                 glOrtho(-1, 1, ys, -ys, -1000, 1000)
 
