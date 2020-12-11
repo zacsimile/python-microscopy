@@ -65,15 +65,13 @@ On OSX, use ``/path/to/conda/environment/python.app/Contents/MacOS/python setup.
 Enable bioformats data importers
 ================================
 
-Install a JAVA JDK or JRE. Open a command prompt in the installation ``conda`` 
-environment and enter
+Open a command prompt in the installation ``conda`` environment and enter
 
 .. code-block:: bash
 
-    conda install javabridge
-    conda install python-bioformats
+    conda install -c david_baddeley python-javabridge python-bioformats
 
-**Caveat:** This currently only works on OSX. If conda packages for javabridge and bioformats don't work, try pip. 
+**Caveat:** If this does not work, try installing ``python-javabridge`` and ``python-bioformats`` via pip. 
 
 
 
